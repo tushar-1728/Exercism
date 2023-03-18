@@ -1,3 +1,8 @@
 {
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "[java]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "redhat.java",
+    },
+    "vsintellicode.features.python.deepLearning": "enabled",
 }
