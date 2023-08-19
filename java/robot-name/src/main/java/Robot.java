@@ -1,27 +1,38 @@
-import java.util.Random;
+import java.lang.Math;
 
-public class Robot {
-    private String name;
+class Robot{
+	static Integer initNumber = 100;
+	static Integer firstString = 0;
+	static Integer secondString = 0;
+
+    String name;
 
     public Robot() {
         this.reset();
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public void reset() {
+    void reset() {
         StringBuilder sBuilder = new StringBuilder();
+        sBuilder.append((char) (firstString + 65));
+		sBuilder.append((char) (secondString++ + 65));
 
-        Random randomGenerator = new Random();
-        for (int i = 0; i < 2; i++) {
-            sBuilder.append((char) (randomGenerator.nextInt(26) + 65));
-        }
-        for (int i = 0; i < 3; i++) {
-            sBuilder.append(randomGenerator.nextInt(10));
-        }
+        sBuilder.append(initNumber);
 
         this.name = sBuilder.toString();
+
+		if (secondString > 25) {
+			secondString = 0;
+			firstString++;
+		}
+
+		if (firstString > 25) {
+			secondString = 0;
+	                firstString = 0;
+			initNumber++;
+        }
     }
 }

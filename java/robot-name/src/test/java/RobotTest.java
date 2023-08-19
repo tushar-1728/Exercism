@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class RobotTest {
@@ -22,6 +23,11 @@ public class RobotTest {
     }
 
     @Test
+    public void sameRobotsHaveSameNames() {
+        assertThat(robot.getName()).isEqualTo(robot.getName());
+    }
+
+    @Test
     public void differentRobotsHaveDifferentNames() {
         assertThat(robot.getName()).isNotEqualTo(new Robot().getName());
     }
@@ -34,7 +40,7 @@ public class RobotTest {
         assertThat(name).isNotEqualTo(name2);
         assertIsValidName(name2);
     }
-
+    
     @Test
     public void robotNamesAreUnique() {
         Set<String> robotNames = new HashSet<>();
